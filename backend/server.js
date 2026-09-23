@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const rateLimit = require('express-rate-limit');
 
 const app = express();
@@ -18,22 +18,8 @@ const contactLimiter = rateLimit({
   message: { success: false, error: 'Too many messages sent. Please try again later.' },
 });
 
-// ---- Mail transporter ----
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: false, // false for port 587 (TLS), true for port 465
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS, // Gmail "App Password"
-  },
-});
-
-// Verify SMTP creds on boot
-transporter.verify((err) => {
-  if (err) console.error('❌ Mail transporter error:', err.message);
-  else console.log('✅ Mail transporter ready');
-});
+// ---- Resend Client Setup ----
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -41,7 +27,6 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 app.post('/api/contact', contactLimiter, async (req, res) => {
   const { name, email, phone, subject, message } = req.body || {};
 
-  // 1. Removed `phone` from this required check so it's optional
   if (!name || !email || !subject || !message) {
     return res.status(400).json({ success: false, error: 'Please fill in all required fields.' });
   }
@@ -53,15 +38,13 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
   }
 
   try {
-    // 2. Conditionally generate the phone line for the email HTML only if phone exists
     const phoneHtmlField = phone && phone.trim() !== ''
       ? `<br>Phone: <a href="tel:${phone}">${phone}</a>`
       : '';
 
-    // Notification email to you
-    await transporter.sendMail({
-      // Note: Gmail SMTP forces auth to be your user email, but this shows user name in inbox
-      from: `"${name}" <${process.env.EMAIL_USER}>`,
+    // Notification email to you via Resend
+    await resend.emails.send({
+      from: 'Portfolio Contact <onboarding@resend.dev>',
       to: process.env.EMAIL_TO || process.env.EMAIL_USER,
       replyTo: email,
       subject: `Portfolio Contact Form - ${subject}`,
@@ -75,9 +58,9 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
       `,
     });
 
-    // Optional auto-reply to the sender
-    await transporter.sendMail({
-      from: `"Bala Venkata Mani Kumar" <${process.env.EMAIL_USER}>`,
+    // Optional auto-reply to the sender via Resend
+    await resend.emails.send({
+      from: 'Portfolio Contact <onboarding@resend.dev>',
       to: email,
       subject: `Thanks for reaching out, ${name}!`,
       text: `Hi ${name},\n\nThanks for your message — I received it and will get back to you soon.\n\nRegards,\nBala Venkata Mani Kumar,\nCloud & DevOps Consultant`,
