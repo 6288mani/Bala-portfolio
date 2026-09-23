@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 // Point this at your backend. In production, set VITE_API_URL in a .env file.
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_API_URL || 'https://bala-portfolio-8hgm.onrender.com';
 
 const initialState = {
   name: '',
