@@ -44,7 +44,7 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
 
     // Notification email to you via Resend
     await resend.emails.send({
-      from: 'Portfolio Contact <onboarding@resend.dev>',
+      from: 'Portfolio Contact <contact@contact.balavenkatamanikumar.com>',
       to: process.env.EMAIL_TO || process.env.EMAIL_USER,
       replyTo: email,
       subject: `Portfolio Contact Form - ${subject}`,
@@ -60,7 +60,7 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
 
     // Optional auto-reply to the sender via Resend
     await resend.emails.send({
-      from: 'Portfolio Contact <onboarding@resend.dev>',
+      from: 'Portfolio Contact <contact@contact.balavenkatamanikumar.com>',
       to: email,
       subject: `Thanks for reaching out, ${name}!`,
       text: `Hi ${name},\n\nThanks for your message — I received it and will get back to you soon.\n\nRegards,\nBala Venkata Mani Kumar,\nCloud & DevOps Consultant`,
