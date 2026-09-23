@@ -3,13 +3,13 @@ import { useState } from 'react';
 // Point this at your backend. In production, set VITE_API_URL in a .env file.
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
-const initialState = { 
-  name: '', 
-  email: '', 
-  countryCode: '+91', 
-  phone: '', 
-  subject: '', 
-  message: '' 
+const initialState = {
+  name: '',
+  email: '',
+  countryCode: '+91',
+  phone: '',
+  subject: '',
+  message: ''
 };
 
 export default function ContactForm() {
@@ -25,8 +25,8 @@ export default function ContactForm() {
     setStatus({ state: 'loading', error: '' });
 
     // Only include country code if the user actually typed a phone number
-    const formattedPhone = form.phone.trim() 
-      ? `${form.countryCode} ${form.phone.trim()}` 
+    const formattedPhone = form.phone.trim()
+      ? `${form.countryCode} ${form.phone.trim()}`
       : '';
 
     const payload = {
@@ -60,15 +60,15 @@ export default function ContactForm() {
   // Dual-theme classes for input fields, textareas, and select elements
   const inputClass =
     'w-full px-4 py-3 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-700/80 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-sm shadow-sm transition-all';
-  
+
   const labelClass =
     'text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400';
 
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8 flex justify-center items-center">
+    <section id="contact-form" className="py-12 px-4 sm:px-6 lg:px-8 flex justify-center items-center">
       <div className="w-full max-w-4xl">
-        <form id="contact-form" onSubmit={handleSubmit} className="p-8 sm:p-12 rounded-3xl shadow-2xl space-y-6 transition-all duration-300 border border-slate-200 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/40 backdrop-blur-xl">
-          
+        <form onSubmit={handleSubmit} className="p-8 sm:p-12 rounded-3xl shadow-2xl space-y-6 transition-all duration-300 border border-slate-200 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/40 backdrop-blur-xl">
+
           <div className="text-center space-y-2 mb-2">
             <h3 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">Get in Touch</h3>
             <p className="text-slate-600 dark:text-slate-400 text-sm">Have a project in mind or want to chat? Send me a message!</p>
@@ -93,10 +93,10 @@ export default function ContactForm() {
                 Phone Number <span className="text-slate-500 dark:text-slate-500 font-normal lowercase">(optional)</span>
               </label>
               <div className="flex items-center gap-2">
-                <select 
-                  name="countryCode" 
-                  value={form.countryCode} 
-                  onChange={handleChange} 
+                <select
+                  name="countryCode"
+                  value={form.countryCode}
+                  onChange={handleChange}
                   className="w-[115px] shrink-0 px-2 py-3 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-700/80 text-slate-900 dark:text-slate-100 focus:outline-none focus:border-indigo-500 text-sm cursor-pointer shadow-sm"
                 >
                   <option value="+91">+91 IN</option>
@@ -116,13 +116,13 @@ export default function ContactForm() {
                   <option value="+39">+39 IT</option>
                   <option value="+92">+92 PK</option>
                 </select>
-                <input 
-                  type="tel" 
-                  name="phone" 
-                  value={form.phone} 
-                  onChange={handleChange} 
-                  placeholder="9876543210" 
-                  className={inputClass} 
+                <input
+                  type="tel"
+                  name="phone"
+                  value={form.phone}
+                  onChange={handleChange}
+                  placeholder="9876543210"
+                  className={inputClass}
                 />
               </div>
             </div>
@@ -148,12 +148,12 @@ export default function ContactForm() {
           </button>
 
           {status.state === 'success' && (
-            <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-sm text-center font-medium animate-fade-in">
+            <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-sm text-center font-medium">
               <i className="fas fa-check-circle mr-2"></i> Message sent successfully! I will get back to you soon.
             </div>
           )}
           {status.state === 'error' && (
-            <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-sm text-center font-medium animate-fade-in">
+            <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-sm text-center font-medium">
               <i className="fas fa-exclamation-circle mr-2"></i> {status.error}
             </div>
           )}
