@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bala Venkata Mani Kumar Vallapu - IT Professional Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#090a0f',
+                        lightBg: '#f8fafc',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .dark .glass-nav {
+            background: rgba(9, 10, 15, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        #mesh-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(100, 116, 139, 0.3);
+            border-radius: 9999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(100, 116, 139, 0.5);
+        }
+    </style>
+</head>
+
+<body class="bg-lightBg text-slate-800 dark:bg-darkBg dark:text-slate-100 transition-colors duration-500">
+
+    <canvas id="mesh-canvas"></canvas>
+
+    <!-- Header / Navbar -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-md border-b border-white/10 dark:border-slate-800/40 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div
+                    class="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform">
+                    <img src="https://avatars.githubusercontent.com/u/89063645?v=4" alt="Bala Venkata Mani Kumar"
+                        class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <span
+                        class="font-extrabold text-lg tracking-tight bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+                        Bala Venkata Mani Kumar
+                    </span>
+                    <span class="block text-xs font-medium text-slate-500 dark:text-slate-400">IT Professional & DevOps
+                        Engineer</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="#about" onclick="highlightSection('about')"
+                    class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</a>
+                <a href="#skills" onclick="highlightSection('skills')"
+                    class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Tech
+                    Stack</a>
+                <a href="#certifications" onclick="highlightSection('certifications')"
+                    class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Certificates</a>
+                <a href="#experience" onclick="highlightSection('experience')"
+                    class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Experience</a>
+                <a href="#corporate-showcase" onclick="highlightSection('corporate-showcase')"
+                    class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Clients</a>
+                <a href="#connection-hub-socials" onclick="highlightSection('connection-hub-socials')"
+                    class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Connection
+                    Hub</a>
+                <a href="#contact-form" onclick="highlightSection('contact-form')"
+                    class="px-4 py-2 rounded-xl bg-indigo-600 text-white font-semibold text-xs hover:bg-indigo-700 transition-colors">Let's
+                    Talk</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" aria-label="Toggle Theme"
+                    class="p-2.5 rounded-full bg-slate-200/40 dark:bg-slate-800/40 text-slate-700 dark:text-slate-200 hover:bg-slate-300/60 dark:hover:bg-slate-700/60 transition-all shadow-sm">
+                    <i id="theme-icon" class="fas fa-moon text-base"></i>
+                </button>
+                <button id="mobile-menu-button" aria-label="Open Menu"
+                    class="md:hidden p-2.5 rounded-xl bg-slate-200/40 dark:bg-slate-800/40 text-slate-700 dark:text-slate-200">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu"
+            class="hidden md:hidden px-6 pt-2 pb-6 bg-slate-900/60 backdrop-blur-xl border-t border-slate-200/20 dark:border-slate-800/50 flex flex-col gap-4">
+            <a href="#about" onclick="highlightSection('about')"
+                class="mobile-link text-slate-700 dark:text-slate-200 font-medium py-1">About</a>
+            <a href="#skills" onclick="highlightSection('skills')"
+                class="mobile-link text-slate-700 dark:text-slate-200 font-medium py-1">Tech Stack</a>
+            <a href="#certifications" onclick="highlightSection('certifications')"
+                class="mobile-link text-slate-700 dark:text-slate-200 font-medium py-1">Certificates</a>
+            <a href="#experience" onclick="highlightSection('experience')"
+                class="mobile-link text-slate-700 dark:text-slate-200 font-medium py-1">Experience</a>
+            <a href="#corporate-showcase" onclick="highlightSection('corporate-showcase')"
+                class="mobile-link text-slate-700 dark:text-slate-200 font-medium py-1">Resume</a>
+            <a href="#connection-hub-socials" onclick="highlightSection('connection-hub-socials')"
+                class="mobile-link text-slate-700 dark:text-slate-200 font-medium py-1">Connection Hub</a>
+            <a href="#contact-form" onclick="highlightSection('contact-form')"
+                class="mobile-link text-indigo-600 dark:text-indigo-400 font-bold py-1">Let's Talk</a>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="relative pt-36 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div
+                        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-xs font-semibold uppercase tracking-wider animate-bounce">
+                        <i class="fas fa-bolt text-xs"></i> IT Professional & DevOps Engineer
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight">
+                        Hi, I'm <span
+                            class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">DevOps
+                            Engineer</span>
+                    </h1>
+
+                    <p
+                        class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Designing and automating scalable cloud infrastructure, CI/CD pipelines, containerized
+                        workloads, and secure deployment workflows using modern DevOps, cloud, and
+                        infrastructure-as-code technologies.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#projects"
+                            class="px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white font-semibold shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:scale-105 transition-all flex items-center gap-2">
+                            <span>Explore Projects</span>
+                            <i class="fas fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="Bala_Resume.pdf" download="Bala_Resume.pdf"
+                            class="px-8 py-4 rounded-xl glass-card font-semibold text-slate-800 dark:text-slate-200 hover:border-indigo-500/50 hover:scale-105 transition-all flex items-center gap-2">
+                            <i class="fas fa-paper-plane text-indigo-500"></i>
+                            <span>Download Resume</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative flex items-center justify-center min-h-[380px]">
+                    <div
+                        class="absolute w-72 h-72 rounded-full bg-gradient-to-tr from-sky-500/20 to-indigo-500/20 blur-3xl -z-10 animate-pulse-slow">
+                    </div>
+
+                    <div class="relative w-full max-w-sm h-[360px] flex items-center justify-center">
+                        <div
+                            class="glass-card p-6 rounded-full shadow-2xl text-center z-10 w-60 h-60 flex flex-col items-center justify-center border border-white/20 dark:border-white/10 animate-float">
+                            <div
+                                class="w-16 h-16 mx-auto mb-2 rounded-full bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-white text-2xl font-bold shadow-md">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3 class="font-bold text-sm leading-tight">Bala Venkata<br>Mani Kumar</h3>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Cloud & DevOps Engineer</p>
+                            <div class="mt-2 flex items-center justify-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                                <span class="text-[10px] font-medium text-emerald-600 dark:text-emerald-400">Open to
+                                    Work</span>
+                            </div>
+                        </div>
+
+                        <div class="absolute -top-2 left-0 px-3.5 py-1.5 rounded-full glass-card text-xs font-bold shadow-lg flex items-center gap-2 animate-bounce z-20"
+                            style="animation-duration: 4s;">
+                            <i class="fab fa-docker text-blue-400 text-base"></i> Docker & K8s
+                        </div>
+
+                        <div class="absolute top-2 -right-2 px-3.5 py-1.5 rounded-full glass-card text-xs font-bold shadow-lg flex items-center gap-2 animate-bounce z-20"
+                            style="animation-duration: 5s; animation-delay: 1s;">
+                            <i class="fab fa-aws text-orange-400 text-base"></i> AWS Cloud
+                        </div>
+
+                        <div class="absolute bottom-4 -left-4 px-3.5 py-1.5 rounded-full glass-card text-xs font-bold shadow-lg flex items-center gap-2 animate-bounce z-20"
+                            style="animation-duration: 4.5s; animation-delay: 0.5s;">
+                            <i class="fas fa-infinity text-purple-400 text-base"></i> CI/CD Pipelines
+                        </div>
+
+                        <div class="absolute bottom-2 -right-2 px-3.5 py-1.5 rounded-full glass-card text-xs font-bold shadow-lg flex items-center gap-2 animate-bounce z-20"
+                            style="animation-duration: 5.5s; animation-delay: 1.5s;">
+                            <i class="fas fa-cubes text-emerald-400 text-base"></i> Terraform & IaC
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative overflow-hidden">
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-gradient-to-tr from-indigo-500/10 via-purple-500/10 to-pink-500/10 blur-3xl -z-10 pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <span
+                    class="text-indigo-600 dark:text-indigo-400 text-sm font-bold uppercase tracking-widest">Professional
+                    Profile</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">About Me</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <div class="glass-card p-8 rounded-3xl shadow-2xl border border-white/20 dark:border-white/10 relative animate-float flex flex-col justify-between hover:scale-[1.02] transition-all duration-300"
+                    style="animation-duration: 5s;">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center text-xl font-bold mb-6 shadow-inner">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Academic Excellence</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                            Mechanical Engineering graduate who transitioned into IT and is now working as a DevOps
+                            Engineer, specializing in Cloud, Automation, CI/CD, Infrastructure as Code, and DevSecOps.
+                        </p>
+                    </div>
+                    <div
+                        class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-indigo-500/20 backdrop-blur-md flex items-center justify-center text-xs font-bold text-indigo-500 shadow-md">
+                        01</div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl shadow-2xl border border-white/20 dark:border-white/10 relative animate-float flex flex-col justify-between hover:scale-[1.02] transition-all duration-300 md:-translate-y-4"
+                    style="animation-duration: 6s; animation-delay: 1s;">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-500 flex items-center justify-center text-xl font-bold mb-6 shadow-inner">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">DevOps & Cloud Engineering Expertise</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                            Experienced in building and automating cloud infrastructure, implementing CI/CD pipelines,
+                            containerizing applications, and managing scalable, secure, and reliable environments using
+                            modern DevOps practices.
+                        </p>
+                    </div>
+                    <div
+                        class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-purple-500/20 backdrop-blur-md flex items-center justify-center text-xs font-bold text-purple-500 shadow-md">
+                        02</div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl shadow-2xl border border-white/20 dark:border-white/10 relative animate-float flex flex-col justify-between hover:scale-[1.02] transition-all duration-300"
+                    style="animation-duration: 5.5s; animation-delay: 0.5s;">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-pink-500/10 text-pink-500 flex items-center justify-center text-xl font-bold mb-6 shadow-inner">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Innovation & Impact</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                            Passionate about automating infrastructure and deployment workflows, improving system
+                            reliability and performance, and building secure, scalable cloud environments that enable
+                            faster and more efficient software delivery.
+                        </p>
+                    </div>
+                    <div
+                        class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-pink-500/20 backdrop-blur-md flex items-center justify-center text-xs font-bold text-pink-500 shadow-md">
+                        03</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Proficiency Section -->
+    <section id="skills" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-indigo-600 dark:text-indigo-400 text-sm font-bold uppercase tracking-widest">Expertise
+                    & Tools</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 text-slate-900 dark:text-white">Technical
+                    Proficiency</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+        </div>
+
+        <!-- Marquee Track for Skills -->
+        <div class="relative w-full overflow-hidden py-6 flex items-center group">
+            <div class="flex gap-8 animate-infinite-scroll whitespace-nowrap px-4 w-max">
+
+                <!-- Skill Card 1 -->
+                <div
+                    class="p-6 rounded-3xl shadow-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/30 flex flex-col justify-between hover:border-indigo-500/50 hover:shadow-2xl transition-all duration-300 shrink-0 w-80 whitespace-normal">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold shadow-inner shrink-0">
+                                <i class="fas fa-cloud"></i></div>
+                            <h3 class="font-bold text-lg text-slate-900 dark:text-white">Cloud & Architecture</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2.5">
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zig"
+                                style="animation-duration: 3.2s;"><i class="fab fa-aws text-orange-400 mr-1"></i> AWS
+                                Services</span>
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zag"
+                                style="animation-duration: 4.1s;">IAM & Security</span>
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zig"
+                                style="animation-duration: 3.7s;">VPC & Networking</span>
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zag"
+                                style="animation-duration: 4.5s;">Serverless</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div
+                    class="p-6 rounded-3xl shadow-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/30 flex flex-col justify-between hover:border-indigo-500/50 hover:shadow-2xl transition-all duration-300 shrink-0 w-80 whitespace-normal">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold shadow-inner shrink-0">
+                                <i class="fab fa-docker"></i></div>
+                            <h3 class="font-bold text-lg text-slate-900 dark:text-white">Containers & K8s</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2.5">
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zig"
+                                style="animation-duration: 3.5s;"><i class="fab fa-docker text-blue-400 mr-1"></i>
+                                Docker & Compose</span>
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zag"
+                                style="animation-duration: 3.9s;"><i class="fas fa-dharmachakra text-sky-400 mr-1"></i>
+                                Kubernetes</span>
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zig"
+                                style="animation-duration: 4.3s;">Helm Charts</span>
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zag"
+                                style="animation-duration: 3.3s;">Container Registry</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div
+                    class="p-6 rounded-3xl shadow-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/30 flex flex-col justify-between hover:border-indigo-500/50 hover:shadow-2xl transition-all duration-300 shrink-0 w-80 whitespace-normal">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center font-bold shadow-inner shrink-0">
+                                <i class="fas fa-infinity"></i></div>
+                            <h3 class="font-bold text-lg text-slate-900 dark:text-white">CI/CD & Automation</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2.5">
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zig"
+                                style="animation-duration: 3.8s;"><i
+                                    class="fab fa-github text-slate-700 dark:text-slate-300 mr-1"></i> GitHub
+                                Actions</span>
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zag"
+                                style="animation-duration: 3.4s;">Jenkins</span>
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zig"
+                                style="animation-duration: 4.6s;">GitOps / ArgoCD</span>
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zag"
+                                style="animation-duration: 3.1s;">Shell Scripting</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 4 -->
+                <div
+                    class="p-6 rounded-3xl shadow-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/30 flex flex-col justify-between hover:border-indigo-500/50 hover:shadow-2xl transition-all duration-300 shrink-0 w-80 whitespace-normal">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold shadow-inner shrink-0">
+                                <i class="fas fa-server"></i></div>
+                            <h3 class="font-bold text-lg text-slate-900 dark:text-white">IaC & Monitoring</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2.5">
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zig"
+                                style="animation-duration: 4.0s;">Terraform</span>
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zag"
+                                style="animation-duration: 3.6s;">Ansible</span>
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zig"
+                                style="animation-duration: 4.2s;">Prometheus & Grafana</span>
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zag"
+                                style="animation-duration: 3.5s;">Linux Admin</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate Set for Infinite Marquee Loop -->
+                <div
+                    class="p-6 rounded-3xl shadow-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/30 flex flex-col justify-between hover:border-indigo-500/50 hover:shadow-2xl transition-all duration-300 shrink-0 w-80 whitespace-normal">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold shadow-inner shrink-0">
+                                <i class="fas fa-cloud"></i></div>
+                            <h3 class="font-bold text-lg text-slate-900 dark:text-white">Cloud & Architecture</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2.5">
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zig"
+                                style="animation-duration: 3.2s;"><i class="fab fa-aws text-orange-400 mr-1"></i> AWS
+                                Services</span>
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zag"
+                                style="animation-duration: 4.1s;">IAM & Security</span>
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zig"
+                                style="animation-duration: 3.7s;">VPC & Networking</span>
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zag"
+                                style="animation-duration: 4.5s;">Serverless</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Verified Microsoft Certifications Dynamic Marquee Section -->
+    <section id="certifications"
+        class="py-12 overflow-hidden relative border-y border-slate-200 dark:border-slate-800/40 bg-transparent transition-all duration-300">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
+            <span class="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Verified
+                Credentials</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 text-slate-900 dark:text-white">Certifications</h2>
+            <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="relative w-full overflow-hidden h-40 flex items-center group">
+
+            <!-- Infinite Scrolling Track with Adaptive Glass Cards -->
+            <div class="flex gap-8 animate-infinite-scroll whitespace-nowrap px-4 w-max">
+
+                <!-- Badge 1 -->
+                <a href="https://learn.microsoft.com/api/credentials/share/en-us/BalaVenkataManiKumarVallapu-3367/E63A292CC9231ACF?sharingId=B92E419AE7C579EC"
+                    target="_blank" rel="noopener noreferrer"
+                    class="p-5 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md flex flex-col items-center text-center gap-3 border border-slate-200 dark:border-indigo-500/30 hover:border-indigo-500 hover:scale-105 transition-all shadow-lg shrink-0 w-44">
+                    <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg"
+                        alt="Azure Associate" class="w-14 h-14 object-contain pointer-events-none">
+                    <span class="font-bold text-xs text-slate-800 dark:text-slate-200 truncate w-full">Azure
+                        Fundamentals</span>
+                </a>
+
+                <!-- Badge 2 -->
+                <a href="https://learn.microsoft.com/api/credentials/share/en-us/BalaVenkataManiKumarVallapu-3367/7F1699754ED88430?sharingId=B92E419AE7C579EC"
+                    target="_blank" rel="noopener noreferrer"
+                    class="p-5 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md flex flex-col items-center text-center gap-3 border border-slate-200 dark:border-indigo-500/30 hover:border-indigo-500 hover:scale-105 transition-all shadow-lg shrink-0 w-44">
+                    <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg"
+                        alt="Developer Associate" class="w-14 h-14 object-contain pointer-events-none">
+                    <span class="font-bold text-xs text-slate-800 dark:text-slate-200 truncate w-full">Fabric Data
+                        Engineer Associate</span>
+                </a>
+
+                <!-- Badge 3 -->
+                <a href="https://learn.microsoft.com/api/credentials/share/en-us/BalaVenkataManiKumarVallapu-3367/23B8AD5491DCA79E?sharingId=B92E419AE7C579EC"
+                    target="_blank" rel="noopener noreferrer"
+                    class="p-5 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md flex flex-col items-center text-center gap-3 border border-slate-200 dark:border-indigo-500/30 hover:border-indigo-500 hover:scale-105 transition-all shadow-lg shrink-0 w-44">
+                    <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg"
+                        alt="Cloud Fundamentals" class="w-14 h-14 object-contain pointer-events-none">
+                    <span class="font-bold text-xs text-slate-800 dark:text-slate-200 truncate w-full">Fabric Analytics
+                        Engineer Associate</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-indigo-600 dark:text-indigo-400 text-sm font-bold uppercase tracking-widest">Portfolio
+                    Showcase</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 text-slate-900 dark:text-white">Featured Projects
+                </h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+        </div>
+
+        <!-- Infinite Horizontal Sliding Track -->
+        <div class="relative w-full overflow-hidden py-4 flex items-center group">
+            <div class="flex gap-8 animate-infinite-scroll whitespace-nowrap px-4 w-max">
+
+                <!-- Project 1 -->
+                <div
+                    class="rounded-3xl overflow-hidden shadow-xl flex flex-col group/card border border-slate-200 dark:border-slate-700/30 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-2xl shrink-0 w-80 bg-white/80 dark:bg-slate-900/40 backdrop-blur-md">
+                    <div
+                        class="relative h-44 overflow-hidden bg-gradient-to-tr from-orange-950 to-indigo-950 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-black/20 group-hover/card:bg-black/0 transition-colors"></div>
+                        <i
+                            class="fas fa-server text-4xl text-orange-400/90 group-hover/card:scale-110 transition-transform"></i>
+                        <span
+                            class="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md text-white text-xs font-semibold shadow-lg">DevOps
+                            / AWS</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between whitespace-normal">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">3-Tier Secure Dynamic App
+                                on AWS</h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">
+                                Resilient 3-tier cloud architecture with private subnet EC2 instances, ALB, and RDS
+                                MySQL.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="px-3 py-1 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-medium shadow-sm">AWS
+                                    VPC</span>
+                                <span
+                                    class="px-3 py-1 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-medium shadow-sm">CloudFront</span>
+                                <span
+                                    class="px-3 py-1 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-medium shadow-sm">RDS</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+                            <button
+                                onclick="openLivePreview('3-Tier Secure Dynamic App on AWS', 'Scalable production-grade web architecture featuring Multi-AZ VPC subnets, Auto Scaling Groups, NAT Gateways, and TLS/SSL encryption via ACM.', ['AWS VPC', 'CloudFront', 'S3', 'RDS MySQL', 'ALB', 'Auto Scaling'], 'https://placehold.co/800x500/c2410c/ffffff?text=AWS+3-Tier+Architecture')"
+                                class="flex-1 py-2 rounded-xl bg-indigo-600 text-white font-semibold text-xs shadow-md hover:bg-indigo-700 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                <i class="fas fa-eye"></i> Preview
+                            </button>
+                            <a href="https://github.com/6288mani" target="_blank" rel="noopener noreferrer"
+                                aria-label="Source Code"
+                                class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="rounded-3xl overflow-hidden shadow-xl flex flex-col group/card border border-slate-200 dark:border-slate-700/30 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-2xl shrink-0 w-80 bg-white/80 dark:bg-slate-900/40 backdrop-blur-md">
+                    <div
+                        class="relative h-44 overflow-hidden bg-gradient-to-tr from-blue-950 to-violet-950 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-black/20 group-hover/card:bg-black/0 transition-colors"></div>
+                        <i
+                            class="fas fa-code text-4xl text-blue-400/90 group-hover/card:scale-110 transition-transform"></i>
+                        <span
+                            class="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md text-white text-xs font-semibold shadow-lg">IaC
+                            / Terraform</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between whitespace-normal">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Scalable 3-Tier Web App
+                                via Terraform</h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">
+                                Infrastructure as Code implementation provisioning high-availability multi-tier cloud
+                                environments.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="px-3 py-1 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-medium shadow-sm">Terraform</span>
+                                <span
+                                    class="px-3 py-1 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-medium shadow-sm">AWS</span>
+                                <span
+                                    class="px-3 py-1 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-medium shadow-sm">IaC</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+                            <button
+                                onclick="openLivePreview('Scalable 3-Tier Web App via Terraform', 'Automated deployment of secure cloud infrastructure leveraging reusable Terraform modules.', ['Terraform', 'AWS', 'GitHub Actions', 'Linux'], 'https://placehold.co/800x500/1e3a8a/ffffff?text=Terraform+Architecture')"
+                                class="flex-1 py-2 rounded-xl bg-indigo-600 text-white font-semibold text-xs shadow-md hover:bg-indigo-700 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                <i class="fas fa-eye"></i> Preview
+                            </button>
+                            <a href="https://github.com/6288mani" target="_blank" rel="noopener noreferrer"
+                                aria-label="Source Code"
+                                class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div
+                    class="rounded-3xl overflow-hidden shadow-xl flex flex-col group/card border border-slate-200 dark:border-slate-700/30 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-2xl shrink-0 w-80 bg-white/80 dark:bg-slate-900/40 backdrop-blur-md">
+                    <div
+                        class="relative h-44 overflow-hidden bg-gradient-to-tr from-cyan-950 to-blue-950 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-black/20 group-hover/card:bg-black/0 transition-colors"></div>
+                        <i
+                            class="fas fa-cubes text-4xl text-cyan-400/90 group-hover/card:scale-110 transition-transform"></i>
+                        <span
+                            class="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md text-white text-xs font-semibold shadow-lg">Kubernetes
+                            / EKS</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between whitespace-normal">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">E-Commerce Microservices
+                                on AWS EKS</h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">
+                                Microservices application orchestrated with Kubernetes, containerized with Docker, and
+                                deployed on EKS.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="px-3 py-1 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-medium shadow-sm">Kubernetes</span>
+                                <span
+                                    class="px-3 py-1 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-medium shadow-sm">AWS
+                                    EKS</span>
+                                <span
+                                    class="px-3 py-1 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-medium shadow-sm">Docker</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+                            <button
+                                onclick="openLivePreview('E-Commerce Microservices on AWS EKS', 'Production-grade container orchestration setup featuring automated scaling, load balancing, Helm charts.', ['Kubernetes', 'AWS EKS', 'Docker', 'Helm'], 'https://placehold.co/800x500/164e63/ffffff?text=EKS+Microservices')"
+                                class="flex-1 py-2 rounded-xl bg-indigo-600 text-white font-semibold text-xs shadow-md hover:bg-indigo-700 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                <i class="fas fa-eye"></i> Preview
+                            </button>
+                            <a href="https://github.com/6288mani" target="_blank" rel="noopener noreferrer"
+                                aria-label="Source Code"
+                                class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-indigo-600 dark:text-indigo-400 text-sm font-bold uppercase tracking-widest">Career
+                    Journey</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">Professional Experience</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div
+                class="space-y-8 relative before:absolute before:inset-0 before:left-7 before:w-0.5 before:bg-indigo-500/30">
+
+                <div class="relative flex items-start gap-6 group">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-indigo-600 to-purple-600 text-white flex items-center justify-center font-bold text-xl shadow-lg shrink-0 z-10 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div
+                        class="glass-card p-6 sm:p-8 rounded-3xl shadow-xl flex-1 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl border border-transparent hover:border-indigo-500/50">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h3 class="text-xl font-bold">Koundinyasa Technology Services Pvt Ltd</h3>
+                            <span
+                                class="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-semibold shadow-sm">13
+                                July 2026 – Present</span>
+                        </div>
+                        <p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">Senior Software Engineer
+                            (DevOps Engineer)</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                            Spearheading cloud infrastructure automation, CI/CD pipeline management, and resilient
+                            container orchestrations to ensure optimal system performance and high availability.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative flex items-start gap-6 group">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600 to-pink-600 text-white flex items-center justify-center font-bold text-xl shadow-lg shrink-0 z-10 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div
+                        class="glass-card p-6 sm:p-8 rounded-3xl shadow-xl flex-1 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl border border-transparent hover:border-indigo-500/50">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h3 class="text-xl font-bold">EY GDS India LLP</h3>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-200/80 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold shadow-sm">18
+                                Sep 2023 – 01 June 2024</span>
+                        </div>
+                        <p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">Senior Consultant 1
+                            (DevOps Engineer)</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                            Architected cloud-native solutions, managed infrastructure configurations, and collaborated
+                            with global engineering teams to streamline deployment workflows and enhance security
+                            standards.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative flex items-start gap-6 group">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center font-bold text-xl shadow-lg shrink-0 z-10 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div
+                        class="glass-card p-6 sm:p-8 rounded-3xl shadow-xl flex-1 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl border border-transparent hover:border-indigo-500/50">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h3 class="text-xl font-bold">Wipro Limited</h3>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-200/80 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold shadow-sm">04
+                                April 2022 – 07 Aug 2023</span>
+                        </div>
+                        <p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">Senior Software Engineer
+                            (DevOps Engineer)</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                            Automated software delivery lifecycles, configured cloud environments, and built robust
+                            monitoring frameworks to maximize operational stability and minimize deployment friction.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact & Connection Hub Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-indigo-600 dark:text-indigo-400 text-sm font-bold uppercase tracking-widest">Get In
+                    Touch</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">Connection Hub</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Send a Message Form -->
+            <div id="root" class="lg:col-span-7"></div>
+            <script type="module" src="/src/main.jsx"></script>
+
+            <!-- Social Networks Hub -->
+            <div id="connection-hub-socials"
+                class="backdrop-blur-md p-8 sm:p-10 rounded-3xl shadow-xl border border-slate-700/30 transition-all duration-300">
+
+                <!-- Header aligned to the left with icon beside text -->
+                <div class="flex items-center gap-4 mb-6">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-pink-500/10 text-pink-500 flex items-center justify-center text-xl shrink-0">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold">Social Networks</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">Connect with me
+                            across developer networks and platforms.</p>
+                    </div>
+                </div>
+
+                <!-- Social Network Cards Grid with Floating Animations -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 pt-4 pb-6">
+
+                    <a href="https://github.com/6288mani" target="_blank" rel="noopener noreferrer"
+                        class="p-4 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/40 hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/10 flex flex-col items-center justify-center gap-2 group transition-all animate-zig">
+                        <i
+                            class="fa-brands fa-github text-2xl text-slate-700 dark:text-slate-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"></i>
+                        <span
+                            class="text-xs font-medium text-slate-700 dark:text-slate-300 group-hover:text-indigo-600 dark:group-hover:text-white">GitHub</span>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/bala-venkata-mani-kumar-vallapu-400654310/" target="_blank"
+                        rel="noopener noreferrer"
+                        class="p-4 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/40 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/10 flex flex-col items-center justify-center gap-2 group transition-all animate-zag">
+                        <i
+                            class="fa-brands fa-linkedin text-2xl text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"></i>
+                        <span
+                            class="text-xs font-medium text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-white">LinkedIn</span>
+                    </a>
+
+                    <a href="https://medium.com" target="_blank" rel="noopener noreferrer"
+                        class="p-4 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/40 hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col items-center justify-center gap-2 group transition-all animate-zig">
+                        <i
+                            class="fa-brands fa-medium text-2xl text-slate-700 dark:text-slate-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"></i>
+                        <span
+                            class="text-xs font-medium text-slate-700 dark:text-slate-300 group-hover:text-emerald-600 dark:group-hover:text-white">Medium</span>
+                    </a>
+
+                    <a href="https://slack.com" target="_blank" rel="noopener noreferrer"
+                        class="p-4 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/40 hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 flex flex-col items-center justify-center gap-2 group transition-all animate-zag">
+                        <i
+                            class="fa-brands fa-slack text-2xl text-slate-700 dark:text-slate-300 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors"></i>
+                        <span
+                            class="text-xs font-medium text-slate-700 dark:text-slate-300 group-hover:text-amber-600 dark:group-hover:text-white">Slack</span>
+                    </a>
+
+                    <a href="https://notion.so" target="_blank" rel="noopener noreferrer"
+                        class="p-4 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/40 hover:border-slate-400 dark:hover:border-slate-300 hover:shadow-lg hover:shadow-slate-500/10 flex flex-col items-center justify-center gap-2 group transition-all animate-zig">
+                        <i
+                            class="fa-solid fa-n text-2xl text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors"></i>
+                        <span
+                            class="text-xs font-medium text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white">Notion</span>
+                    </a>
+
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+                        class="p-4 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/40 hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10 flex flex-col items-center justify-center gap-2 group transition-all animate-zag">
+                        <i
+                            class="fa-brands fa-twitter text-2xl text-slate-700 dark:text-slate-300 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors"></i>
+                        <span
+                            class="text-xs font-medium text-slate-700 dark:text-slate-300 group-hover:text-sky-600 dark:group-hover:text-white">Twitter</span>
+                    </a>
+
+                    <a href="mailto:balavenkatamanikumar@gmail.com"
+                        class="p-4 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/40 hover:border-pink-500 hover:shadow-lg hover:shadow-pink-500/10 flex flex-col items-center justify-center gap-2 group transition-all animate-zig">
+                        <i
+                            class="fa-solid fa-envelope text-2xl text-slate-700 dark:text-slate-300 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors"></i>
+                        <span
+                            class="text-xs font-medium text-slate-700 dark:text-slate-300 group-hover:text-pink-600 dark:group-hover:text-white">Email</span>
+                    </a>
+                </div>
+
+                <style>
+                    @keyframes zigFloatTilt {
+
+                        0%,
+                        100% {
+                            transform: translateY(0px) rotate(0deg);
+                        }
+
+                        50% {
+                            transform: translateY(-7px) rotate(-2deg);
+                        }
+                    }
+
+                    @keyframes zagFloatTilt {
+
+                        0%,
+                        100% {
+                            transform: translateY(0px) rotate(0deg);
+                        }
+
+                        50% {
+                            transform: translateY(7px) rotate(2deg);
+                        }
+                    }
+
+                    .animate-zig {
+                        animation: zigFloatTilt 3.6s ease-in-out infinite;
+                    }
+
+                    .animate-zag {
+                        animation: zagFloatTilt 3.6s ease-in-out infinite;
+                    }
+                </style>
+    </section>
+
+    <!-- Corporate Enterprise Showcase & Metrics Section -->
+    <section id="corporate-showcase"
+        class="py-24 relative overflow-hidden bg-slate-900/10 dark:bg-slate-900/60 backdrop-blur-xl border-y border-slate-200/80 dark:border-slate-800/80">
+
+        <!-- Background Glow Accents -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-indigo-600/10 blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-blue-600/10 blur-3xl pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-indigo-600 dark:text-indigo-400 text-sm font-bold uppercase tracking-widest">Global
+                    Standards & Trust</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 text-slate-900 dark:text-white">Enterprise
+                    Excellence & Clients</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- 1. Corporate Metrics Grid (Experience, Projects, ISO Certifications) -->
+            <div class="flex flex-wrap justify-center gap-6 mb-20">
+
+                <!-- Metric 1 -->
+                <div
+                    class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] p-6 rounded-3xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/30 shadow-xl text-center hover:scale-105 transition-all duration-300">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center mx-auto mb-4 text-xl font-bold shadow-inner">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-1">3+</h3>
+                    <p class="text-sm font-medium text-slate-600 dark:text-slate-400">Years of Experience</p>
+                </div>
+
+                <!-- Metric 2 -->
+                <div
+                    class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] p-6 rounded-3xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/30 shadow-xl text-center hover:scale-105 transition-all duration-300">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-500 flex items-center justify-center mx-auto mb-4 text-xl font-bold shadow-inner">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-1">10+</h3>
+                    <p class="text-sm font-medium text-slate-600 dark:text-slate-400">Projects Completed</p>
+                </div>
+
+                <!-- Metric 3 (Currently Commented Out)
+            <div class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] p-6 rounded-3xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/30 shadow-xl text-center hover:scale-105 transition-all duration-300">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto mb-4 text-xl font-bold shadow-inner">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-1">ISO 9001</h3>
+                <p class="text-sm font-medium text-slate-600 dark:text-slate-400">& ISO 27001 Certified</p>
+            </div> -->
+
+                <!-- Metric 4 -->
+                <div
+                    class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] p-6 rounded-3xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/30 shadow-xl text-center hover:scale-105 transition-all duration-300">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-500 flex items-center justify-center mx-auto mb-4 text-xl font-bold shadow-inner">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-1">99.4%</h3>
+                    <p class="text-sm font-medium text-slate-600 dark:text-slate-400">Client Satisfaction</p>
+                </div>
+
+            </div>
+
+            <!-- 2. Client Partner Logos Marquee (Moving Continuous Track) -->
+            <div class="mb-20">
+                <p
+                    class="text-center text-xs font-semibold uppercase tracking-widest dark:text-slate-500 mb-8 opacity-60">
+                    Professional Experience & Organizations Worked With</p>
+
+                <div class="relative w-full overflow-hidden flex items-center mask-fade">
+                    <div class="flex gap-20 animate-infinite-scroll whitespace-nowrap items-center w-max">
+
+                        <!-- Logo Item 1: Wipro -->
+                        <div
+                            class="flex items-center justify-center opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E0BAQFTFdGNe-V9tw/company-logo_400_400/B4EZpFMu4WIQAY-/0/1762097557732?e=1792022400&v=beta&t=JixyM6xIft4FzW_06WJLdriDHA7c1jb26x2Ey83zu1I"
+                                alt="Wipro" class="h-16 w-16 object-contain drop-shadow-sm dark:brightness-110"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                            <span
+                                class="hidden h-16 w-16 items-center justify-center text-blue-500 font-black text-2xl">W</span>
+                        </div>
+
+                        <!-- Logo Item 2: EY -->
+                        <div
+                            class="flex items-center justify-center opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                            <img src="https://media.licdn.com/dms/image/v2/C510BAQGpRhkpxp5A9A/company-logo_400_400/company-logo_400_400/0/1630570672166/ernstandyoung_logo?e=1792022400&v=beta&t=pBnZYn5AHsxZVHqtXFsCiSyyADkxy5LCVDvXMdtjMwA"
+                                alt="EY" class="h-16 w-16 object-contain drop-shadow-sm dark:brightness-110"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                            <span
+                                class="hidden h-16 w-16 items-center justify-center text-amber-500 font-black text-2xl">EY</span>
+                        </div>
+
+                        <!-- Logo Item 3: Koundinyasa -->
+                        <div
+                            class="flex items-center justify-center opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                            <img src="https://media.licdn.com/dms/image/v2/D560BAQHoZVZbFxw-ng/company-logo_400_400/B56ZxA8b7KGsAY-/0/1770616111262/behavoxi_india_logo?e=1792022400&v=beta&t=tmRPkLdTBK9ZQZJF8NOSOQDj72Df7gba_whrNmcxNj8"
+                                alt="Behavox" class="h-16 w-16 object-contain drop-shadow-sm dark:brightness-110"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                            <span
+                                class="hidden h-16 w-16 items-center justify-center text-indigo-500 font-black text-2xl">B</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div>
+            <div class="text-center mb-10">
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">What Executives Say</h3>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-8">
+
+                <!-- Testimonial 1 -->
+                <div
+                    class="w-full lg:w-[calc(50%-16px)] p-8 rounded-3xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/30 shadow-2xl relative flex flex-col justify-between hover:scale-[1.02] transition-all duration-300">
+                    <div class="absolute top-6 right-8 text-indigo-500/20 text-5xl font-serif">“</div>
+                    <p class="text-slate-700 dark:text-slate-300 text-base italic mb-6 relative z-10">
+                        "Their rigorous adherence to ISO frameworks and cloud migration protocols saved us hundreds of
+                        hours of downtime. Exceptional engineering standard and strategic precision."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center text-lg shadow-sm">
+                            JD
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white">Jonathan Davis</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Chief Technology Officer, Apex Global
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div
+                    class="w-full lg:w-[calc(50%-16px)] p-8 rounded-3xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/30 shadow-2xl relative flex flex-col justify-between hover:scale-[1.02] transition-all duration-300">
+                    <div class="absolute top-6 right-8 text-indigo-500/20 text-5xl font-serif">“</div>
+                    <p class="text-slate-700 dark:text-slate-300 text-base italic mb-6 relative z-10">
+                        "An absolute game-changer for our enterprise infrastructure. Their commitment to enterprise
+                        security, compliance, and scalable architecture is second to none."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-500 text-white font-bold flex items-center justify-center text-lg shadow-sm">
+                            SR
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white">Sarah Roberts</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">VP of Engineering, Microsystems</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer
+        class="w-full py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-200/60 dark:border-slate-800/60 bg-transparent transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
+
+            <!-- Footer Left Side: Brand / Copyright -->
+            <div class="text-center lg:text-left space-y-1">
+                <p
+                    class="text-sm font-extrabold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+                    Bala Venkata Mani Kumar
+                </p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">© 2026 All Rights Reserved.</p>
+            </div>
+
+            <!-- Footer Middle: Design & Development Credit -->
+            <div class="text-center">
+                <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                    Designed & developed with passion by <a href="https://balavenkatamanikumar.com" target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">balavenkatamanikumar.com</a>
+                </p>
+            </div>
+
+            <!-- Footer Right Side: Location Card -->
+            <div class="w-full lg:w-auto flex justify-center">
+                <div
+                    class="px-5 py-3.5 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200/80 dark:border-slate-700/40 shadow-sm flex items-center gap-4 transition-all duration-300 hover:scale-[1.02]">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-base shrink-0 shadow-inner">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <span
+                            class="text-[10px] uppercase tracking-wider dark:text-slate-500 font-semibold block">Location</span>
+                        <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">Guntur, Andhra Pradesh,
+                            IN (Remote)</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Project Preview Modal -->
+    <div id="preview-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+        <div class="glass-card w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl border border-white/20 transform scale-95 transition-transform duration-300"
+            id="modal-content-box">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-800">
+                <h3 id="modal-title" class="font-bold text-lg">Project Live Preview</h3>
+                <button onclick="closeLivePreview()"
+                    class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-300 transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6 max-h-[75vh] overflow-y-auto space-y-6">
+                <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800">
+                    <img id="modal-image" src="" alt="Preview" class="w-full h-auto object-cover">
+                </div>
+                <div>
+                    <h4 class="font-bold text-base mb-2">Project Overview</h4>
+                    <p id="modal-description" class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed"></p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-base mb-2">Technologies Used</h4>
+                    <div id="modal-tags" class="flex flex-wrap gap-2"></div>
+                </div>
+            </div>
+            <div class="px-6 py-4 border-t border-slate-200 dark:border-slate-800 flex justify-end">
+                <button onclick="closeLivePreview()"
+                    class="px-6 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 font-semibold text-xs hover:bg-slate-300 transition-colors">
+                    Close Preview
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions & Mesh Canvas Animation -->
+    <script>
+        const canvas = document.getElementById('mesh-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let orbs = [];
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class GlowingOrb {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 1.2;
+                this.vy = (Math.random() - 0.5) * 1.2;
+                this.radius = Math.random() * 180 + 100;
+                const colors = [
+                    'rgba(99, 102, 241, 0.18)',
+                    'rgba(168, 85, 247, 0.18)',
+                    'rgba(236, 72, 153, 0.18)',
+                    'rgba(6, 182, 212, 0.15)'
+                ];
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < -this.radius || this.x > width + this.radius) this.vx *= -1;
+                if (this.y < -this.radius || this.y > height + this.radius) this.vy *= -1;
+            }
+            draw() {
+                const gradient = ctx.createRadialGradient(
+                    this.x, this.y, 0,
+                    this.x, this.y, this.radius
+                );
+                gradient.addColorStop(0, this.color);
+                gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initOrbs() {
+            orbs = [];
+            const count = window.innerWidth < 768 ? 4 : 7;
+            for (let i = 0; i < count; i++) {
+                orbs.push(new GlowingOrb());
+            }
+        }
+        initOrbs();
+
+        function animateOrbs() {
+            ctx.clearRect(0, 0, width, height);
+            orbs.forEach(orb => {
+                orb.update();
+                orb.draw();
+            });
+            requestAnimationFrame(animateOrbs);
+        }
+        animateOrbs();
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            htmlElement.classList.remove('dark');
+            themeIcon.className = 'fas fa-sun text-base';
+        } else {
+            htmlElement.classList.add('dark');
+            themeIcon.className = 'fas fa-moon text-base';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                themeIcon.className = 'fas fa-moon text-base';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeIcon.className = 'fas fa-sun text-base';
+            }
+        });
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        function highlightSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+                el.classList.add('ring-4', 'ring-indigo-500', 'scale-[1.01]');
+                setTimeout(() => {
+                    el.classList.remove('ring-4', 'ring-indigo-500', 'scale-[1.01]');
+                }, 1500);
+            }
+        }
+
+        function openLivePreview(title, description, tags, imageUrl) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-description').textContent = description;
+            document.getElementById('modal-image').src = imageUrl;
+
+            const tagsContainer = document.getElementById('modal-tags');
+            tagsContainer.innerHTML = '';
+            tags.forEach(tag => {
+                const span = document.createElement('span');
+                span.className = 'px-3 py-1 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-semibold';
+                span.textContent = tag;
+                tagsContainer.appendChild(span);
+            });
+
+            const modal = document.getElementById('preview-modal');
+            const box = document.getElementById('modal-content-box');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                box.classList.remove('scale-95');
+                box.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeLivePreview() {
+            const modal = document.getElementById('preview-modal');
+            const box = document.getElementById('modal-content-box');
+            modal.classList.add('opacity-0');
+            box.classList.remove('scale-100');
+            box.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successMsg = document.getElementById('form-success-msg');
+            successMsg.classList.remove('hidden');
+            document.getElementById('contact-form').reset();
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
