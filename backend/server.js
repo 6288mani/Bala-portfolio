@@ -42,10 +42,13 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
       ? `<br>Phone: <a href="tel:${phone}">${phone}</a>`
       : '';
 
+    // Define sender address dynamically using template literal
+    const senderAddress = `Portfolio Contact <${process.env.DOMAIN_EMAIL}>`;
+
     // Notification email to you via Resend
     await resend.emails.send({
-      from: 'Portfolio Contact <contact@contact.balavenkatamanikumar.com>',
-      to: process.env.EMAIL_TO || process.env.EMAIL_USER,
+      from: senderAddress,
+      to: process.env.EMAIL_TO,
       replyTo: email,
       subject: `Portfolio Contact Form - ${subject}`,
       html: `
@@ -58,9 +61,9 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
       `,
     });
 
-    // Optional auto-reply to the sender via Resend
+    // Auto-reply to the sender via Resend
     await resend.emails.send({
-      from: 'Portfolio Contact <contact@contact.balavenkatamanikumar.com>',
+      from: senderAddress,
       to: email,
       subject: `Thanks for reaching out, ${name}!`,
       text: `Hi ${name},\n\nThanks for your message — I received it and will get back to you soon.\n\nRegards,\nBala Venkata Mani Kumar,\nCloud & DevOps Consultant`,
