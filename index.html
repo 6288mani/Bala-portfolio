@@ -71,8 +71,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-BTmWML-q.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DhYN1TTV.css">
+  <script type="module" crossorigin src="/assets/index-CDW6zfaF.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BxDxCUdd.css">
 </head>
 
 <body class="bg-lightBg text-slate-800 dark:bg-darkBg dark:text-slate-100 transition-colors duration-500">
@@ -99,53 +99,67 @@
                 </div>
             </a>
 
+            <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
-                <a href="#about" onclick="highlightSection('about')"
+                <a href="#about" onclick="highlightSection('about', event)"
                     class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</a>
-                <a href="#skills" onclick="highlightSection('skills')"
+                <a href="#skills" onclick="highlightSection('skills', event)"
                     class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Tech
                     Stack</a>
-                <a href="#certifications" onclick="highlightSection('certifications')"
+                <a href="#certifications" onclick="highlightSection('certifications', event)"
                     class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Certificates</a>
-                <a href="#experience" onclick="highlightSection('experience')"
+                <a href="#experience" onclick="highlightSection('experience', event)"
                     class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Experience</a>
-                <a href="#corporate-showcase" onclick="highlightSection('corporate-showcase')"
+                <a href="#corporate-showcase" onclick="highlightSection('corporate-showcase', event)"
                     class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Clients</a>
-                <a href="#connection-hub-socials" onclick="highlightSection('connection-hub-socials')"
+                <a href="#connection-hub-socials" onclick="highlightSection('connection-hub-socials', event)"
                     class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Connection
                     Hub</a>
-                <a href="#contact-form" onclick="highlightSection('contact-form')"
-                    class="px-4 py-2 rounded-xl bg-indigo-600 text-white font-semibold text-xs hover:bg-indigo-700 transition-colors">Let's
-                    Talk</a>
+                <a href="#contact-form" onclick="highlightSection('contact-form', event)"
+                    class="px-4 py-2 rounded-xl bg-indigo-600 text-white font-semibold text-xs hover:bg-indigo-700 transition-colors cursor-pointer">
+                    Let's Talk
+                </a>
             </nav>
 
             <div class="flex items-center gap-4">
+                <a href="https://wa.me/919494456926?text=Hi%20Bala,%20I%20came%20across%20your%20portfolio%20and%20want%20to%20connect!"
+                    target="_blank" rel="noopener noreferrer"
+                    class="p-1.5 text-[#25D366] hover:scale-110 transition-transform duration-200 flex items-center justify-center"
+                    aria-label="Chat on WhatsApp">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                </a>
+
                 <button id="theme-toggle" aria-label="Toggle Theme"
                     class="p-2.5 rounded-full bg-slate-200/40 dark:bg-slate-800/40 text-slate-700 dark:text-slate-200 hover:bg-slate-300/60 dark:hover:bg-slate-700/60 transition-all shadow-sm">
                     <i id="theme-icon" class="fas fa-moon text-base"></i>
                 </button>
+
                 <button id="mobile-menu-button" aria-label="Open Menu"
                     class="md:hidden p-2.5 rounded-xl bg-slate-200/40 dark:bg-slate-800/40 text-slate-700 dark:text-slate-200">
                     <i class="fas fa-bars text-lg"></i>
                 </button>
             </div>
         </div>
+
+        <!-- Mobile Navigation Dropdown -->
         <div id="mobile-menu"
             class="hidden md:hidden px-6 pt-2 pb-6 bg-slate-900/60 backdrop-blur-xl border-t border-slate-200/20 dark:border-slate-800/50 flex flex-col gap-4">
-            <a href="#about" onclick="highlightSection('about')"
+            <a href="#about" onclick="highlightSection('about', event)"
                 class="mobile-link text-slate-700 dark:text-slate-200 font-medium py-1">About</a>
-            <a href="#skills" onclick="highlightSection('skills')"
+            <a href="#skills" onclick="highlightSection('skills', event)"
                 class="mobile-link text-slate-700 dark:text-slate-200 font-medium py-1">Tech Stack</a>
-            <a href="#certifications" onclick="highlightSection('certifications')"
+            <a href="#certifications" onclick="highlightSection('certifications', event)"
                 class="mobile-link text-slate-700 dark:text-slate-200 font-medium py-1">Certificates</a>
-            <a href="#experience" onclick="highlightSection('experience')"
+            <a href="#experience" onclick="highlightSection('experience', event)"
                 class="mobile-link text-slate-700 dark:text-slate-200 font-medium py-1">Experience</a>
-            <a href="#corporate-showcase" onclick="highlightSection('corporate-showcase')"
+            <a href="#corporate-showcase" onclick="highlightSection('corporate-showcase', event)"
                 class="mobile-link text-slate-700 dark:text-slate-200 font-medium py-1">Resume</a>
-            <a href="#connection-hub-socials" onclick="highlightSection('connection-hub-socials')"
+            <a href="#connection-hub-socials" onclick="highlightSection('connection-hub-socials', event)"
                 class="mobile-link text-slate-700 dark:text-slate-200 font-medium py-1">Connection Hub</a>
-            <a href="#contact-form" onclick="highlightSection('contact-form')"
-                class="mobile-link text-indigo-600 dark:text-indigo-400 font-bold py-1">Let's Talk</a>
+            <a href="#contact-form" onclick="highlightSection('contact-form', event)"
+                class="mobile-link text-indigo-600 dark:text-indigo-400 font-bold py-1 cursor-pointer">
+                Let's Talk
+            </a>
         </div>
     </header>
     <!-- Hero Section -->
@@ -901,7 +915,6 @@
         </div>
     </section>
 
-
     <!-- Corporate Enterprise Showcase & Metrics Section -->
     <section id="corporate-showcase"
         class="py-24 relative overflow-hidden bg-slate-900/10 dark:bg-slate-900/60 backdrop-blur-xl border-y border-slate-200/80 dark:border-slate-800/80">
@@ -1152,6 +1165,8 @@
     </div>
 
     <!-- JavaScript Interactions & Mesh Canvas Animation -->
+    <!-- Thunderbolt AI Widget Script -->
+    <script defer src="https://www.thunderbolt.com/gateway/api/v1/thunderbolt-ui/embed.js"></script>
 
 </body>
 
