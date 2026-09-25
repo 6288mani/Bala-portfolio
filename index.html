@@ -6,39 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bala Venkata Mani Kumar Vallapu - IT Professional Portfolio</title>
 
-    <!-- Absolute Favicon URLs for Google Search Console & Browsers -->
-    <link rel="icon" type="image/png" sizes="48x48" href="https://balavenkatamanikumar.com/googleinspired.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="https://balavenkatamanikumar.com/googleinspired.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="https://balavenkatamanikumar.com/googleinspired.png" />
-
-    <!-- Open Graph Meta Tags (LinkedIn, Facebook, WhatsApp, Slack) -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://balavenkatamanikumar.com/" />
-    <meta property="og:title" content="Bala Venkata Mani Kumar Vallapu - IT Professional Portfolio" />
-    <meta property="og:description" content="Explore my portfolio, projects, and IT expertise." />
-    <meta property="og:image" content="https://balavenkatamanikumar.com/googleinspired.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-
-    <!-- Twitter Card Meta Tags (Twitter/X) -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://balavenkatamanikumar.com/" />
-    <meta name="twitter:title" content="Bala Venkata Mani Kumar Vallapu - IT Professional Portfolio" />
-    <meta name="twitter:description" content="Explore my portfolio, projects, and IT expertise." />
-    <meta name="twitter:image" content="https://balavenkatamanikumar.com/googleinspired.png" />
-
-    <!-- Google Organization Schema (Brand Logo & Knowledge Graph) -->
+    <!-- Schema JSON-LD -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Bala Venkata Mani Kumar Vallapu",
-      "url": "https://balavenkatamanikumar.com",
-      "logo": "https://balavenkatamanikumar.com/googleinspired.png"
-    }
-    </script>
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Bala Venkata Mani Kumar Vallapu",
+          "url": "https://balavenkatamanikumar.com",
+          "logo": "https://balavenkatamanikumar.com/googleinspired.png"
+        }
+        </script>
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CDN Config -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -64,77 +43,36 @@
                     }
                 }
             }
-        }
+        };
     </script>
+
+    <!-- Absolute Favicon URLs for Google Search Console & Browsers -->
+    <link rel="icon" type="image/png" sizes="48x48" href="https://balavenkatamanikumar.com/googleinspired.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="https://balavenkatamanikumar.com/googleinspired.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://balavenkatamanikumar.com/googleinspired.png" />
+
+    <!-- Open Graph Meta Tags (LinkedIn, Facebook, WhatsApp, Slack) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://balavenkatamanikumar.com/" />
+    <meta property="og:title" content="Bala Venkata Mani Kumar Vallapu - IT Professional Portfolio" />
+    <meta property="og:description" content="Explore my portfolio, projects, and IT expertise." />
+    <meta property="og:image" content="https://balavenkatamanikumar.com/googleinspired.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags (Twitter/X) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://balavenkatamanikumar.com/" />
+    <meta name="twitter:title" content="Bala Venkata Mani Kumar Vallapu - IT Professional Portfolio" />
+    <meta name="twitter:description" content="Explore my portfolio, projects, and IT expertise." />
+    <meta name="twitter:image" content="https://balavenkatamanikumar.com/googleinspired.png" />
 
     <!-- FontAwesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .dark .glass-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        .dark .glass-nav {
-            background: rgba(9, 10, 15, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        #mesh-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: rgba(100, 116, 139, 0.3);
-            border-radius: 9999px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(100, 116, 139, 0.5);
-        }
-    </style>
-  <script type="module" crossorigin src="/assets/index-DqPNJ5TR.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-BgOdXMZw.css">
+  <script type="module" crossorigin src="/assets/index-bdCbm4gM.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DhYN1TTV.css">
 </head>
 
 <body class="bg-lightBg text-slate-800 dark:bg-darkBg dark:text-slate-100 transition-colors duration-500">
@@ -375,16 +313,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
             <div class="text-center max-w-3xl mx-auto">
                 <span class="text-indigo-600 dark:text-indigo-400 text-sm font-bold uppercase tracking-widest">Expertise
-                    & Tools</span>
+                    &
+                    Tools</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 text-slate-900 dark:text-white">Technical
-                    Proficiency</h2>
+                    Proficiency
+                </h2>
                 <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
             </div>
         </div>
 
-        <!-- Marquee Track for Skills -->
-        <div class="relative w-full overflow-hidden py-6 flex items-center group">
-            <div class="flex gap-8 animate-infinite-scroll whitespace-nowrap px-4 w-max">
+        <!-- Marquee Track Container with Mask Fade Edges -->
+        <div
+            class="relative w-full overflow-hidden py-6 flex items-center group [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+
+            <!-- Track element targeted by ID -->
+            <div id="skills-track"
+                class="flex gap-8 animate-infinite-scroll whitespace-nowrap px-4 w-max hover:[animation-play-state:paused]">
 
                 <!-- Skill Card 1 -->
                 <div
@@ -400,8 +344,9 @@
                         <div class="flex flex-wrap gap-2.5">
                             <span
                                 class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zig"
-                                style="animation-duration: 3.2s;"><i class="fab fa-aws text-orange-400 mr-1"></i> AWS
-                                Services</span>
+                                style="animation-duration: 3.2s;">
+                                <i class="fab fa-aws text-orange-400 mr-1"></i> AWS Services
+                            </span>
                             <span
                                 class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zag"
                                 style="animation-duration: 4.1s;">IAM & Security</span>
@@ -429,12 +374,14 @@
                         <div class="flex flex-wrap gap-2.5">
                             <span
                                 class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zig"
-                                style="animation-duration: 3.5s;"><i class="fab fa-docker text-blue-400 mr-1"></i>
-                                Docker & Compose</span>
+                                style="animation-duration: 3.5s;">
+                                <i class="fab fa-docker text-blue-400 mr-1"></i> Docker & Compose
+                            </span>
                             <span
                                 class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zag"
-                                style="animation-duration: 3.9s;"><i class="fas fa-dharmachakra text-sky-400 mr-1"></i>
-                                Kubernetes</span>
+                                style="animation-duration: 3.9s;">
+                                <i class="fas fa-dharmachakra text-sky-400 mr-1"></i> Kubernetes
+                            </span>
                             <span
                                 class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zig"
                                 style="animation-duration: 4.3s;">Helm Charts</span>
@@ -459,9 +406,9 @@
                         <div class="flex flex-wrap gap-2.5">
                             <span
                                 class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zig"
-                                style="animation-duration: 3.8s;"><i
-                                    class="fab fa-github text-slate-700 dark:text-slate-300 mr-1"></i> GitHub
-                                Actions</span>
+                                style="animation-duration: 3.8s;">
+                                <i class="fab fa-github text-slate-700 dark:text-slate-300 mr-1"></i> GitHub Actions
+                            </span>
                             <span
                                 class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm inline-block animate-zag"
                                 style="animation-duration: 3.4s;">Jenkins</span>
@@ -502,6 +449,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -517,10 +465,13 @@
             <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <div class="relative w-full overflow-hidden h-40 flex items-center group">
+        <!-- Container with edge fade mask -->
+        <div
+            class="relative w-full overflow-hidden h-40 flex items-center group [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
 
-            <!-- Infinite Scrolling Track with Adaptive Glass Cards -->
-            <div class="flex gap-8 animate-infinite-scroll whitespace-nowrap px-4 w-max">
+            <!-- Infinite Track -->
+            <div id="cert-track"
+                class="flex gap-8 animate-infinite-scroll whitespace-nowrap px-4 w-max hover:[animation-play-state:paused]">
 
                 <!-- Badge 1: Azure Fundamentals -->
                 <a href="https://learn.microsoft.com/api/credentials/share/en-us/BalaVenkataManiKumarVallapu-3367/E63A292CC9231ACF?sharingId=B92E419AE7C579EC"
@@ -556,6 +507,7 @@
                         Engineer Associate</span>
                 </a>
 
+                <!-- Badge 4: Cloud Practitioner -->
                 <a href="https://www.credly.com/badges/d2361767-4993-4ce8-9581-bbfb1a98a350/public_url" target="_blank"
                     rel="noopener noreferrer"
                     class="p-5 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md flex flex-col items-center text-center gap-3 border border-slate-200 dark:border-indigo-500/30 hover:border-indigo-500 hover:scale-105 transition-all shadow-lg shrink-0 w-44">
@@ -566,6 +518,7 @@
                         Practitioner</span>
                 </a>
 
+                <!-- Badge 5: Generative AI Practitioner -->
                 <a href="https://www.credly.com/badges/6c2f0d67-58c8-49dd-9d72-b191321a7fc3/public_url" target="_blank"
                     rel="noopener noreferrer"
                     class="p-5 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md flex flex-col items-center text-center gap-3 border border-slate-200 dark:border-indigo-500/30 hover:border-indigo-500 hover:scale-105 transition-all shadow-lg shrink-0 w-44">
@@ -576,6 +529,7 @@
                         Practitioner</span>
                 </a>
 
+                <!-- Badge 6: ServiceNow -->
                 <a href="https://www.credly.com/badges/c1de6a25-240d-4c17-802f-5f8606572938/public_url" target="_blank"
                     rel="noopener noreferrer"
                     class="p-5 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md flex flex-col items-center text-center gap-3 border border-slate-200 dark:border-indigo-500/30 hover:border-indigo-500 hover:scale-105 transition-all shadow-lg shrink-0 w-44">
@@ -583,9 +537,11 @@
                         class="w-14 h-14 object-contain pointer-events-none">
                     <span
                         class="font-bold text-xs text-slate-800 dark:text-slate-200 truncate w-full">Micro-Certification
-                        - Welcome to ServiceNow</span>
+                        -
+                        Welcome to ServiceNow</span>
                 </a>
 
+                <!-- Badge 7: CIS-DF -->
                 <a href="https://www.credly.com/badges/590536d3-353e-4301-bf8f-dae5d1b284c0/public_url" target="_blank"
                     rel="noopener noreferrer"
                     class="p-5 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md flex flex-col items-center text-center gap-3 border border-slate-200 dark:border-indigo-500/30 hover:border-indigo-500 hover:scale-105 transition-all shadow-lg shrink-0 w-44">
@@ -612,9 +568,13 @@
             </div>
         </div>
 
-        <!-- Infinite Horizontal Sliding Track -->
-        <div class="relative w-full overflow-hidden py-4 flex items-center group">
-            <div class="flex gap-8 animate-infinite-scroll whitespace-nowrap px-4 w-max">
+        <!-- Infinite Horizontal Sliding Track with Mask Fade Edges -->
+        <div
+            class="relative w-full overflow-hidden py-4 flex items-center group [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+
+            <!-- Track element targeted by ID -->
+            <div id="project-track"
+                class="flex gap-8 animate-infinite-scroll whitespace-nowrap px-4 w-max hover:[animation-play-state:paused]">
 
                 <!-- Project 1 -->
                 <div
@@ -631,7 +591,8 @@
                     <div class="p-6 flex-1 flex flex-col justify-between whitespace-normal">
                         <div>
                             <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">3-Tier Secure Dynamic App
-                                on AWS</h3>
+                                on
+                                AWS</h3>
                             <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">
                                 Resilient 3-tier cloud architecture with private subnet EC2 instances, ALB, and RDS
                                 MySQL.
@@ -676,7 +637,8 @@
                     <div class="p-6 flex-1 flex flex-col justify-between whitespace-normal">
                         <div>
                             <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Scalable 3-Tier Web App
-                                via Terraform</h3>
+                                via
+                                Terraform</h3>
                             <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">
                                 Infrastructure as Code implementation provisioning high-availability multi-tier cloud
                                 environments.
@@ -720,7 +682,8 @@
                     <div class="p-6 flex-1 flex flex-col justify-between whitespace-normal">
                         <div>
                             <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">E-Commerce Microservices
-                                on AWS EKS</h3>
+                                on
+                                AWS EKS</h3>
                             <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">
                                 Microservices application orchestrated with Kubernetes, containerized with Docker, and
                                 deployed on EKS.
@@ -855,21 +818,13 @@
     <!-- Contact & Connection Hub Section -->
     <section id="contact" class="py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-indigo-600 dark:text-indigo-400 text-sm font-bold uppercase tracking-widest">Get In
-                    Touch</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">Connection Hub</h2>
-                <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
-            </div>
 
-            <!-- Send a Message Form -->
-            <div id="root" class="lg:col-span-7"></div>
+            <!-- React Component Container -->
+            <div id="root"></div>
 
             <!-- Social Networks Hub -->
             <div id="connection-hub-socials"
                 class="backdrop-blur-md p-8 sm:p-10 rounded-3xl shadow-xl border border-slate-700/30 transition-all duration-300">
-
-                <!-- Header aligned to the left with icon beside text -->
                 <div class="flex items-center gap-4 mb-6">
                     <div
                         class="w-14 h-14 rounded-2xl bg-pink-500/10 text-pink-500 flex items-center justify-center text-xl shrink-0">
@@ -877,14 +832,14 @@
                     </div>
                     <div>
                         <h3 class="text-2xl font-bold">Social Networks</h3>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">Connect with me
-                            across developer networks and platforms.</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">
+                            Connect with me across developer networks and platforms.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Social Network Cards Grid with Floating Animations -->
+                <!-- Social Cards Grid -->
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 pt-4 pb-6">
-
                     <a href="https://github.com/6288mani" target="_blank" rel="noopener noreferrer"
                         class="p-4 rounded-2xl bg-white/80 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/40 hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/10 flex flex-col items-center justify-center gap-2 group transition-all animate-zig">
                         <i
@@ -942,41 +897,10 @@
                             class="text-xs font-medium text-slate-700 dark:text-slate-300 group-hover:text-pink-600 dark:group-hover:text-white">Email</span>
                     </a>
                 </div>
-
-                <style>
-                    @keyframes zigFloatTilt {
-
-                        0%,
-                        100% {
-                            transform: translateY(0px) rotate(0deg);
-                        }
-
-                        50% {
-                            transform: translateY(-7px) rotate(-2deg);
-                        }
-                    }
-
-                    @keyframes zagFloatTilt {
-
-                        0%,
-                        100% {
-                            transform: translateY(0px) rotate(0deg);
-                        }
-
-                        50% {
-                            transform: translateY(7px) rotate(2deg);
-                        }
-                    }
-
-                    .animate-zig {
-                        animation: zigFloatTilt 3.6s ease-in-out infinite;
-                    }
-
-                    .animate-zag {
-                        animation: zagFloatTilt 3.6s ease-in-out infinite;
-                    }
-                </style>
+            </div>
+        </div>
     </section>
+
 
     <!-- Corporate Enterprise Showcase & Metrics Section -->
     <section id="corporate-showcase"
@@ -1054,11 +978,15 @@
                     Professional Experience & Organizations Worked With
                 </p>
 
-                <div class="relative w-full overflow-hidden flex items-center mask-fade py-4">
-                    <div class="flex gap-16 animate-infinite-scroll whitespace-nowrap items-center w-max">
+                <!-- Marquee Track Container with Mask Fade Edges -->
+                <div
+                    class="relative w-full overflow-hidden flex items-center mask-fade py-4 group [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
 
-                        <!-- Primary Set -->
-                        <!-- Logo Item 1: Wipro (Dark Text + Colors) -->
+                    <!-- Track element targeted by ID -->
+                    <div id="logos-track"
+                        class="flex gap-16 animate-infinite-scroll whitespace-nowrap items-center w-max hover:[animation-play-state:paused]">
+
+                        <!-- Logo Item 1: Wipro -->
                         <div
                             class="flex items-center justify-center shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300 group">
                             <img src="/assets/wipro-DUwCQXXb.png" alt="Wipro"
@@ -1068,7 +996,7 @@
                                 class="hidden h-24 w-24 items-center justify-center text-blue-500 font-black text-3xl">W</span>
                         </div>
 
-                        <!-- Logo Item 2: EY (Dark Text + Accent) -->
+                        <!-- Logo Item 2: EY -->
                         <div
                             class="flex items-center justify-center shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300 group">
                             <img src="/assets/ey-jNfxuD6e.png" alt="EY"
@@ -1078,7 +1006,7 @@
                                 class="hidden h-24 w-24 items-center justify-center text-amber-500 font-black text-3xl">EY</span>
                         </div>
 
-                        <!-- Logo Item 3: Koundinyasa Technology Services (White/Light Text) -->
+                        <!-- Logo Item 3: Koundinyasa Technology Services -->
                         <div
                             class="flex items-center justify-center shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300 group">
                             <img src="/assets/kts-ClIhHKnQ.png" alt="Koundinyasa Technology Services"
@@ -1224,172 +1152,8 @@
     </div>
 
     <!-- JavaScript Interactions & Mesh Canvas Animation -->
-    <script>
-        const canvas = document.getElementById('mesh-canvas');
-        const ctx = canvas.getContext('2d');
+    <script src="script.js"></script>
 
-        let width, height;
-        let orbs = [];
-
-        function resizeCanvas() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        }
-
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        class GlowingOrb {
-            constructor() {
-                this.reset();
-            }
-            reset() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 1.2;
-                this.vy = (Math.random() - 0.5) * 1.2;
-                this.radius = Math.random() * 180 + 100;
-                const colors = [
-                    'rgba(99, 102, 241, 0.18)',
-                    'rgba(168, 85, 247, 0.18)',
-                    'rgba(236, 72, 153, 0.18)',
-                    'rgba(6, 182, 212, 0.15)'
-                ];
-                this.color = colors[Math.floor(Math.random() * colors.length)];
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < -this.radius || this.x > width + this.radius) this.vx *= -1;
-                if (this.y < -this.radius || this.y > height + this.radius) this.vy *= -1;
-            }
-            draw() {
-                const gradient = ctx.createRadialGradient(
-                    this.x, this.y, 0,
-                    this.x, this.y, this.radius
-                );
-                gradient.addColorStop(0, this.color);
-                gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-
-                ctx.fillStyle = gradient;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function initOrbs() {
-            orbs = [];
-            const count = window.innerWidth < 768 ? 4 : 7;
-            for (let i = 0; i < count; i++) {
-                orbs.push(new GlowingOrb());
-            }
-        }
-        initOrbs();
-
-        function animateOrbs() {
-            ctx.clearRect(0, 0, width, height);
-            orbs.forEach(orb => {
-                orb.update();
-                orb.draw();
-            });
-            requestAnimationFrame(animateOrbs);
-        }
-        animateOrbs();
-
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const htmlElement = document.documentElement;
-
-        const currentTheme = localStorage.getItem('theme') || 'dark';
-        if (currentTheme === 'light') {
-            htmlElement.classList.remove('dark');
-            themeIcon.className = 'fas fa-sun text-base';
-        } else {
-            htmlElement.classList.add('dark');
-            themeIcon.className = 'fas fa-moon text-base';
-        }
-
-        themeToggleBtn.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark');
-            if (htmlElement.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-                themeIcon.className = 'fas fa-moon text-base';
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeIcon.className = 'fas fa-sun text-base';
-            }
-        });
-
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        function highlightSection(id) {
-            const el = document.getElementById(id);
-            if (el) {
-                el.scrollIntoView({ behavior: 'smooth' });
-                el.classList.add('ring-4', 'ring-indigo-500', 'scale-[1.01]');
-                setTimeout(() => {
-                    el.classList.remove('ring-4', 'ring-indigo-500', 'scale-[1.01]');
-                }, 1500);
-            }
-        }
-
-        function openLivePreview(title, description, tags, imageUrl) {
-            document.getElementById('modal-title').textContent = title;
-            document.getElementById('modal-description').textContent = description;
-            document.getElementById('modal-image').src = imageUrl;
-
-            const tagsContainer = document.getElementById('modal-tags');
-            tagsContainer.innerHTML = '';
-            tags.forEach(tag => {
-                const span = document.createElement('span');
-                span.className = 'px-3 py-1 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-semibold';
-                span.textContent = tag;
-                tagsContainer.appendChild(span);
-            });
-
-            const modal = document.getElementById('preview-modal');
-            const box = document.getElementById('modal-content-box');
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                box.classList.remove('scale-95');
-                box.classList.add('scale-100');
-            }, 10);
-        }
-
-        function closeLivePreview() {
-            const modal = document.getElementById('preview-modal');
-            const box = document.getElementById('modal-content-box');
-            modal.classList.add('opacity-0');
-            box.classList.remove('scale-100');
-            box.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
-        }
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const successMsg = document.getElementById('form-success-msg');
-            successMsg.classList.remove('hidden');
-            document.getElementById('contact-form').reset();
-            setTimeout(() => {
-                successMsg.classList.add('hidden');
-            }, 5000);
-        }
-    </script>
 </body>
+
+</html>
