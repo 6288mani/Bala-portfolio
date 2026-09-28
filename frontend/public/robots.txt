@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.svg$
+Allow: /*.webp$
+
+Sitemap: https://balavenkatamanikumar.com/sitemap.xml
