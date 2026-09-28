@@ -25,6 +25,7 @@
     |   |   |-- kts.png
     |   |   `-- wipro.png
     |   |-- googleinspired.png
+    |   |-- robots.txt
     |   `-- sitemap.xml
     |-- script.js
     |-- src
@@ -35,5 +36,5 @@
     |-- style.css
     `-- vite.config.js
 
-6 directories, 26 files
+6 directories, 27 files
 ```
